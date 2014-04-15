@@ -1,8 +1,9 @@
 Bookstore::Application.routes.draw do
- resources :books do
+  resources :books do
+    resources :reviews
     get 'page/:page', :action => :index, :on => :collection
- end
- root 'books#index'
+  end
+  root 'books#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
