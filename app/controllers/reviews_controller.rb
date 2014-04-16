@@ -5,12 +5,6 @@ class ReviewsController < ApplicationController
 	  @reviews = @book.reviews.order('created_at desc')
 	end
 
-	private
-
-	def set_book
-	  @book = Book.find(params[:book_id])
-	end
-
 	def new
 	  @review = @book.reviews.new
 	end
@@ -28,5 +22,9 @@ class ReviewsController < ApplicationController
 
 	def review_params
 		params.require(:review).permit(:stars, :name, :comment)
+	end
+
+	def set_book
+	  @book = Book.find(params[:book_id])
 	end
 end
